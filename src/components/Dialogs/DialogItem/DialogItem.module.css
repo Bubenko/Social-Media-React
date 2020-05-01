@@ -1,0 +1,15 @@
+.dialog a {
+  text-decoration: none;
+  color: white;
+}
+.dialog a:visited {
+  color: white;
+}
+
+.active a {
+  color: red;
+}
+
+.profileImage {
+  border-radius: 50px;
+}

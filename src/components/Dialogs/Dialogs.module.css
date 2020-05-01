@@ -7,6 +7,10 @@
   padding: 10px;
 }
 
+.dialogsItems a {
+  color: white;
+}
+
 .dialog a {
   text-decoration: none;
   color: white;
@@ -15,9 +19,14 @@
   color: white;
 }
 
+.active a {
+  color: red;
+}
+
 .messages {
   padding: 10px;
 }
 
 .message {
+  color: white;
 }
