@@ -1,3 +1,5 @@
+import { rerenderEntireTree } from "../render";
+
 let state = {
   profilePage: {
     postData: [
@@ -54,6 +56,7 @@ let state = {
         url: "https://picsum.photos/50/50",
       },
     ],
+    newPostText: "it-.com",
   },
   messagesPage: {
     messagesData: [
@@ -82,6 +85,22 @@ let state = {
       { id: 3, name: "Nazar", url: "https://picsum.photos/50/50" },
     ],
   },
+};
+
+export let addPost = (postMessage) => {
+  let newPost = {
+    id: 5,
+    message: state.profilePage.newPostText,
+    likesCount: 0,
+  };
+  state.profilePage.postData.push(newPost);
+  state.profilePage.newPostText = "";
+  rerenderEntireTree(state);
+};
+
+export let updateNewPostTest = (newText) => {
+  state.profilePage.newPostText = newText;
+  rerenderEntireTree(state);
 };
 
 export default state;

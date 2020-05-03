@@ -16,7 +16,7 @@ const App = (props) => {
       <div className="app-wrapper">
         <Header />
         <Nav friendsData={props.state.sideNavigation.friendsData} />
-        <div class="app-wrapper-content">
+        <div className="app-wrapper-content">
           <Route
             path="/dialogs"
             render={() => (
@@ -28,7 +28,14 @@ const App = (props) => {
           />
           <Route
             path="/content"
-            render={() => <Content data={props.state.profilePage.postData} />}
+            render={() => (
+              <Content
+                data={props.state.profilePage.postData}
+                addPost={props.addPost}
+                newPostText={props.state.profilePage.newPostText}
+                updateNewPostTest={props.updateNewPostTest}
+              />
+            )}
           />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
