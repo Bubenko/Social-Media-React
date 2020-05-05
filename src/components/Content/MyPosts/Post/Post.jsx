@@ -7,7 +7,7 @@ const Post = (props) => {
       <img src="https://picsum.photos/300/300" alt="" />
       {props.message}
       <br />
-      Likes: {props.likesCount}
+      Likes: {props.likes}
     </div>
   );
 };

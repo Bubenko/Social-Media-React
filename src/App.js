@@ -21,8 +21,10 @@ const App = (props) => {
             path="/dialogs"
             render={() => (
               <Dialogs
-                dialogsData={props.state.profilePage.dialogsData}
-                messagesData={props.state.messagesPage.messagesData}
+                // dialogsData={props.state.messagesPage.dialogsData}
+                // messagesData={props.state.messagesPage.messagesData}
+                // dispatch={props.dispatch}
+                store={props.store}
               />
             )}
           />
@@ -31,9 +33,7 @@ const App = (props) => {
             render={() => (
               <Content
                 data={props.state.profilePage.postData}
-                addPost={props.addPost}
-                newPostText={props.state.profilePage.newPostText}
-                updateNewPostTest={props.updateNewPostTest}
+                dispatch={props.dispatch}
               />
             )}
           />
