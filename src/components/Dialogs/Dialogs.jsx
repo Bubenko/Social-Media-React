@@ -35,19 +35,21 @@ const Dialogs = (props) => {
     <div>
       <div className={s.dialogs}>
         <div className={s.dialogsItems}>{dialogsElements}</div>
-        <div className={s.messages}>{messagesElements}</div>
-      </div>
-      <div className="addPost">
-        <div>
-          <textarea
-            value={newMessageBody}
-            onChange={onNewMessageChange}
-            placeholder="Add new message"
-            ref={messageRef}
-          ></textarea>
-        </div>
-        <div>
-          <button onClick={onSendMessageClick}>Add Post</button>
+        <div className={s.messages}>
+          <div>{messagesElements}</div>
+          <div className="addPost">
+            <div>
+              <textarea
+                value={newMessageBody}
+                onChange={onNewMessageChange}
+                placeholder="Add new message"
+                ref={messageRef}
+              ></textarea>
+            </div>
+            <div>
+              <button onClick={onSendMessageClick}>Add Post</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

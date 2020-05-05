@@ -1,3 +1,6 @@
+import profileReducer from "./profile-reducer";
+import messagesReducer from "./messages-reducer";
+
 const ADD_POST = "ADD-POST";
 const UPDATE_NEW_POST_TEXT = "UPDATE-NEW-POST-TEXT";
 const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY";
@@ -103,48 +106,14 @@ let store = {
     this._callSubscriber = observer;
   },
 
-  // addPost() {
-  //   let newPost = {
-  //     id: 5,
-  //     message: this._state.profilePage.newPostText,
-  //     likes: 10,
-  //   };
-  //   this._state.profilePage.postData.push(newPost);
-  //   this._state.profilePage.newPostText = "";
-  //   this._callSubscriber(this._state);
-  // },
-  // updateNewPostTest(newText) {
-  //   this._state.profilePage.newPostText = newText;
-  //   this._callSubscriber(this._state);
-  // },
   dispatch(action) {
-    if (action.type === ADD_POST) {
-      let newPost = {
-        id: 5,
-        message: this._state.profilePage.newPostText,
-        likes: 12,
-      };
-      this._state.profilePage.postData.push(newPost);
-      this._state.profilePage.newPostText = "";
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_POST_TEXT) {
-      this._state.profilePage.newPostText = action.newText;
-      this._callSubscriber(this._state);
-    } else if (action.type === UPDATE_NEW_MESSAGE_BODY) {
-      this._state.messagesPage.newMessageBody = action.body;
-      this._callSubscriber(this._state);
-    } else if (action.type === SEND_MESSAGE) {
-      let body = this._state.messagesPage.newMessageBody;
-      this._state.messagesPage.newMessageBody = "";
-      this._state.messagesPage.messagesData.push({ id: 6, message: body });
-      this._callSubscriber(this._state);
-      // let newMessage = {
-      //   id: 10,
-      //   message: this._state.messagesPage.newMessageBody,
-      // };
-      // this._state.messagesPage.messagesData.push(newMessage);
-      // this._state.messagesPage.newMessageBody = "";
-    }
+    this._state.profilePage = profileReducer(this._state.profilePage, action);
+    this._state.messagesPage = messagesReducer(
+      this._state.messagesPage,
+      action
+    );
+
+    this._callSubscriber(this._state);
   },
 };
 //end of store
