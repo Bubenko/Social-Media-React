@@ -16,4 +16,17 @@ const messagesReducer = (state, action) => {
   }
 };
 
+export const sendMessageBodyCreator = () => {
+  return {
+    type: SEND_MESSAGE,
+  };
+};
+
+export const updateNewMessageBodyCreator = (body) => {
+  return {
+    type: UPDATE_NEW_MESSAGE_BODY,
+    body: body,
+  };
+};
+
 export default messagesReducer;
