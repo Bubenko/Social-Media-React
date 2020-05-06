@@ -9,24 +9,20 @@ import Settings from "./components/Settings/Settings";
 
 import "./App.css";
 import { Route, BrowserRouter } from "react-router-dom";
+import DialogsContainer from "./components/Dialogs/DialogsContainer";
 
 const App = (props) => {
   return (
     <BrowserRouter>
       <div className="app-wrapper">
         <Header />
-        <Nav friendsData={props.state.sideNavigation.friendsData} />
+        <Nav
+          friendsData={props.state.sideNavigation.sideNavigation.friendsData}
+        />
         <div className="app-wrapper-content">
           <Route
             path="/dialogs"
-            render={() => (
-              <Dialogs
-                // dialogsData={props.state.messagesPage.dialogsData}
-                // messagesData={props.state.messagesPage.messagesData}
-                // dispatch={props.dispatch}
-                store={props.store}
-              />
-            )}
+            render={() => <DialogsContainer store={props.store} />}
           />
           <Route
             path="/content"

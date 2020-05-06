@@ -6,7 +6,6 @@ const FriendsBar = (props) => {
   let fridendsElements = props.friendsData.map((f) => (
     <ProfileSideBar url={f.url} name={f.name} />
   ));
-
   return (
     <div>
       <div>
