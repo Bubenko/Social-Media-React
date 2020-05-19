@@ -17,22 +17,11 @@ const App = (props) => {
       <div className="app-wrapper">
         <Header />
         <Nav
-          friendsData={props.state.sideNavigation.sideNavigation.friendsData}
+        // friendsData={props.state.sideNavigation.sideNavigation.friendsData}
         />
         <div className="app-wrapper-content">
-          <Route
-            path="/dialogs"
-            render={() => <DialogsContainer store={props.store} />}
-          />
-          <Route
-            path="/content"
-            render={() => (
-              <Content
-                data={props.state.profilePage.postData}
-                dispatch={props.dispatch}
-              />
-            )}
-          />
+          <Route path="/dialogs" render={() => <DialogsContainer />} />
+          <Route path="/content" render={() => <Content />} />
           <Route path="/news" render={() => <News />} />
           <Route path="/music" render={() => <Music />} />
           <Route path="/settings" render={() => <Settings />} />

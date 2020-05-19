@@ -23,7 +23,7 @@ const Nav = (props) => {
           <NavLink to="/settings">Settings</NavLink>
         </div>
       </nav>
-      <FriendsBar friendsData={props.friendsData} />
+      {/* <FriendsBar friendsData={props.friendsData} /> */}
     </div>
   );
 };

@@ -7,11 +7,12 @@ import {
 } from "../../../redux/profile-reducer";
 
 const MyPosts = (props) => {
-  let postsElements = props.posts.map((p) => (
+  let postsElements = props.posts.profilePage.postData.map((p) => (
     <Post message={p.message} likes={p.likes} />
   ));
 
   let newPostElement = React.createRef();
+  let newPostText = props.updateNewPostTest;
 
   let onAddPost = () => {
     props.addPost();
@@ -32,7 +33,8 @@ const MyPosts = (props) => {
           <textarea
             onChange={onPostChange}
             ref={newPostElement}
-            value={props.newPostText}
+            value={newPostText}
+            placeholder="Add new message"
           />
         </div>
         <div>

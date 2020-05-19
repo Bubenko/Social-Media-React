@@ -8,7 +8,7 @@ const Content = (props) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPostsContainer store={props} />
+      <MyPostsContainer />
       {/* data={props.data} dispatch={props.dispatch} */}
     </div>
   );
