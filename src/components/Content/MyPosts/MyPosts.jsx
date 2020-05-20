@@ -12,7 +12,9 @@ const MyPosts = (props) => {
   ));
 
   let newPostElement = React.createRef();
-  let newPostText = props.updateNewPostTest;
+
+  // ----- NOT WORKING -----
+  // let newPostText = props.updateNewPostTest;
 
   let onAddPost = () => {
     props.addPost();
@@ -33,7 +35,7 @@ const MyPosts = (props) => {
           <textarea
             onChange={onPostChange}
             ref={newPostElement}
-            value={newPostText}
+            value={props.newPostText}
             placeholder="Add new message"
           />
         </div>

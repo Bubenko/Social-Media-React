@@ -8,17 +8,19 @@ import {
 } from "../../redux/messages-reducer";
 
 const Dialogs = (props) => {
-  let state = props.messagesPage.messagesPage.messagesPage;
+  let state = props.messagesPage.messagesPage;
 
   let dialogsElements = state.dialogsData.map((d) => (
-    <DialogItem name={d.name} id={d.id} url={d.url} />
+    <DialogItem name={d.name} key={d.id} id={d.id} url={d.url} />
   ));
 
   let messagesElements = state.messagesData.map((m) => (
-    <Message message={m.message} />
+    <Message message={m.message} key={m.id} />
   ));
 
-  let newMessageBody = props.updateNewMessageBody;
+  // ----- NOT WORKING ----
+  // let newMessageBody = props.updateNewMessageBody;
+  // debugger;
 
   let messageRef = React.createRef();
 
@@ -31,7 +33,6 @@ const Dialogs = (props) => {
     let body = messageRef.current.value;
     props.updateNewMessageBody(body);
   };
-
   return (
     <div>
       <div className={s.dialogs}>
@@ -41,7 +42,7 @@ const Dialogs = (props) => {
           <div className="addPost">
             <div>
               <textarea
-                value={newMessageBody}
+                value={props.messagesPage.newMessageBody}
                 onChange={onNewMessageChange}
                 placeholder="Add new message"
                 ref={messageRef}

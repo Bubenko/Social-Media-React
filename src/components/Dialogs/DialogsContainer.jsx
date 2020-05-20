@@ -31,17 +31,17 @@ import { connect } from "react-redux";
 
 let mapStateToProps = (state) => {
   return {
-    messagesPage: state,
+    messagesPage: state.messagesPage,
   };
 };
 
 let mapDispatchToProps = (dispatch) => {
   return {
-    updateNewMessageBody: () => {
-      dispatch(sendMessageBodyCreator());
-    },
-    sendMessage: (body) => {
+    updateNewMessageBody: (body) => {
       dispatch(updateNewMessageBodyCreator(body));
+    },
+    sendMessage: () => {
+      dispatch(sendMessageBodyCreator());
     },
   };
 };
