@@ -1,13 +1,40 @@
 import React from "react";
+import * as axios from "axios";
 
 let Users = (props) => {
+  if (props.users.length === 0) {
+    axios
+      .get("https://social-network.samuraijs.com/api/1.0/users")
+      .then((responce) => {
+        props.setUsers(responce.data.items);
+      });
+
+    // props.setUsers([
+    //   {
+    //     id: 1,
+    //     fullName: "Vladimir",
+    //     status: "Boss",
+    //     location: { city: "Minsk", country: "Belarus" },
+    //     followed: false,
+    //     profileUrl: "https://picsum.photos/200/300",
+    //   },
+    // ]);
+  }
+
   return (
     <div>
       {props.users.map((u) => (
         <div key={u.id}>
           <span>
             <div>
-              <img src={u.profileUrl} alt="" />
+              <img
+                src={
+                  u.photos.small != null
+                    ? u.photos.small
+                    : "https://picsum.photos/200/300"
+                }
+                alt=""
+              />
             </div>
           </span>
           <span>
@@ -31,12 +58,13 @@ let Users = (props) => {
           </span>
           <span>
             <span>
-              <div>{u.fullName}</div>
+              <div>{u.name}</div>
               <div>{u.status}</div>
             </span>
             <span>
-              <div>{u.location.country}</div>
-              <div>{u.location.city}</div>
+              {/* <div>{u.location.country}</div> */}
+              {/* <div>{u.location.city}</div> */}
+              <div>World</div>
             </span>
           </span>
         </div>

@@ -3,40 +3,7 @@ const UNFOLLOW = "UNFOLLOW";
 const SET_USERS = "SET_USERS";
 
 let initialState = {
-  users: [
-    {
-      id: 1,
-      fullName: "Vladimir",
-      status: "Boss",
-      location: { city: "Minsk", country: "Belarus" },
-      followed: false,
-      profileUrl: "https://picsum.photos/200/300",
-    },
-    {
-      id: 2,
-      fullName: "Viktor",
-      status: "Dealer",
-      location: { city: "Kiev", country: "Ukraine" },
-      followed: true,
-      profileUrl: "https://picsum.photos/200/300",
-    },
-    {
-      id: 3,
-      fullName: "Stepan",
-      status: "Viliger",
-      location: { city: "Ternopil", country: "Ukraine" },
-      followed: true,
-      profileUrl: "https://picsum.photos/200/300",
-    },
-    {
-      id: 4,
-      fullName: "Sofa",
-      status: "Student",
-      location: { city: "Moscow", country: "Russia" },
-      followed: false,
-      profileUrl: "https://picsum.photos/200/300",
-    },
-  ],
+  users: [],
 };
 
 const usersReducer = (state = initialState, action) => {
