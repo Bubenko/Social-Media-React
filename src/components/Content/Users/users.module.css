@@ -1,0 +1,9 @@
+.container {
+  padding: 20px;
+}
+.pagination {
+  margin-bottom: 40px;
+}
+.selectedPage {
+  font-weight: bold;
+}
