@@ -1,6 +1,7 @@
 import React from "react";
 import * as axios from "axios";
 import styles from "./users.module.css";
+import { NavLink } from "react-router-dom";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -32,14 +33,16 @@ let Users = (props) => {
         <div key={u.id}>
           <span>
             <div>
-              <img
-                src={
-                  u.photos.small != null
-                    ? u.photos.small
-                    : "https://picsum.photos/200/300"
-                }
-                alt=""
-              />
+              <NavLink to={"/content/" + u.id}>
+                <img
+                  src={
+                    u.photos.small != null
+                      ? u.photos.small
+                      : "https://picsum.photos/200/300"
+                  }
+                  alt=""
+                />
+              </NavLink>
             </div>
           </span>
           <span>
