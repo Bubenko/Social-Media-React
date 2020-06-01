@@ -1,13 +1,18 @@
 import React from "react";
-import classes from "./Header.module.css";
+import s from "./Header.module.css";
+import { NavLink } from "react-router-dom";
 
-const Header = () => {
+const Header = (props) => {
   return (
-    <header className={classes.header}>
+    <header className={s.header}>
       <img
-        className={classes.logo}
+        className={s.logo}
         src="https://somnomed.com/wp-content/uploads/2017/09/SM-SOCIAL-MEDIA-ICON-FACEBOOK-5.png"
       />
+
+      <div className={s.loginBlock}>
+        {props.isAuth ? props.login : <NavLink to={"/login"}>Login</NavLink>}
+      </div>
     </header>
   );
 };

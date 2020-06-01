@@ -6,3 +6,11 @@
 .header .logo {
   height: 100%;
 }
+
+.loginBlock {
+  float: right;
+}
+
+.loginBlock a {
+  color: #fff;
+}
