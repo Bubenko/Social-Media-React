@@ -1,8 +1,6 @@
 import React from "react";
-import * as axios from "axios";
 import styles from "./users.module.css";
 import { NavLink } from "react-router-dom";
-import { toggleFollowingProgress } from "../../../redux/users-reducer";
 
 let Users = (props) => {
   let pagesCount = Math.ceil(props.totalUsersCount / props.pageSize);
@@ -51,23 +49,7 @@ let Users = (props) => {
               <button
                 disabled={props.followingInProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.toggleFollowingProgress(true, u.id);
-                  axios
-                    .delete(
-                      `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                      {
-                        withCredentials: true,
-                        headers: {
-                          "API-KEY": "1b8b137b-2d80-49b2-99df-d9c42f42aa59",
-                        },
-                      }
-                    )
-                    .then((response) => {
-                      if (response.data.resultCode == 0) {
-                        props.unfollow(u.id);
-                      }
-                      toggleFollowingProgress(false, u.id);
-                    });
+                  props.unfollow(u.id);
                 }}
               >
                 Unfollow
@@ -76,24 +58,7 @@ let Users = (props) => {
               <button
                 disabled={props.followingInProgress.some((id) => id === u.id)}
                 onClick={() => {
-                  props.toggleFollowingProgress(true, u.id);
-                  axios
-                    .post(
-                      `https://social-network.samuraijs.com/api/1.0/follow/${u.id}`,
-                      {},
-                      {
-                        withCredentials: true,
-                        headers: {
-                          "API-KEY": "1b8b137b-2d80-49b2-99df-d9c42f42aa59",
-                        },
-                      }
-                    )
-                    .then((response) => {
-                      if (response.data.resultCode == 0) {
-                        props.follow(u.id);
-                      }
-                      props.toggleFollowingProgress(false, u.id);
-                    });
+                  props.follow(u.id);
                 }}
               >
                 Follow
@@ -106,8 +71,6 @@ let Users = (props) => {
               <div>{u.status}</div>
             </span>
             <span>
-              {/* <div>{u.location.country}</div> */}
-              {/* <div>{u.location.city}</div> */}
               <div>World</div>
             </span>
           </span>
