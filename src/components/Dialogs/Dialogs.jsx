@@ -6,6 +6,7 @@ import {
   updateNewMessageBodyCreator,
   sendMessageBodyCreator,
 } from "../../redux/messages-reducer";
+import { Redirect } from "react-router-dom";
 
 const Dialogs = (props) => {
   let state = props.messagesPage.messagesPage;
@@ -18,10 +19,6 @@ const Dialogs = (props) => {
     <Message message={m.message} key={m.id} />
   ));
 
-  // ----- NOT WORKING ----
-  // let newMessageBody = props.updateNewMessageBody;
-  // debugger;
-
   let messageRef = React.createRef();
 
   let onSendMessageClick = () => {
@@ -29,10 +26,12 @@ const Dialogs = (props) => {
   };
 
   let onNewMessageChange = () => {
-    // let body = e.target.value;
     let body = messageRef.current.value;
     props.updateNewMessageBody(body);
   };
+
+  if (!props.isAuth) return <Redirect to={"/login"} />;
+
   return (
     <div>
       <div className={s.dialogs}>

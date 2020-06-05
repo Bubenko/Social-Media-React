@@ -9,29 +9,10 @@ import {
 import Dialogs from "./Dialogs";
 import { connect } from "react-redux";
 
-// const DialogsContainer = (props) => {
-//   let state = props.store.getState().messagesPage;
-
-//   let onSendMessageClick = () => {
-//     props.store.dispatch(sendMessageBodyCreator());
-//   };
-
-//   let onNewMessageChange = (body) => {
-//     props.store.dispatch(updateNewMessageBodyCreator(body));
-//   };
-
-//   return (
-//     <Dialogs
-//       messagesPage={state}
-//       sendMessage={onSendMessageClick}
-//       updateNewMessageBody={onNewMessageChange}
-//     />
-//   );
-// };
-
 let mapStateToProps = (state) => {
   return {
     messagesPage: state.messagesPage,
+    isAuth: state.auth.isAuth,
   };
 };
 
