@@ -1,4 +1,4 @@
-const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY";
+// const UPDATE_NEW_MESSAGE_BODY = "UPDATE_NEW_MESSAGE_BODY";
 const SEND_MESSAGE = "SEND_MESSAGE";
 
 let initialReducer = {
@@ -48,25 +48,23 @@ let initialReducer = {
         url: "https://picsum.photos/50/50",
       },
     ],
-    newMessageBody: "",
   },
 };
 
 const messagesReducer = (state = initialReducer, action) => {
   switch (action.type) {
-    case UPDATE_NEW_MESSAGE_BODY: {
-      return {
-        ...state,
-        newMessageBody: action.body,
-      };
-      // stateCopy.newMessageBody = action.body;
-      // return stateCopy;
-    }
+    // case UPDATE_NEW_MESSAGE_BODY: {
+    //   return {
+    //     ...state,
+    //     newMessageBody: action.body,
+    //   };
+    // stateCopy.newMessageBody = action.body;
+    // return stateCopy;
+    // }
     case SEND_MESSAGE: {
-      let body = state.newMessageBody;
+      let body = action.newMessageBody;
       let stateCopy = {
         ...state,
-        newMessageBody: "",
         // messagesPage: {
         //   messagesData: [
         //     ...state.messagesPage.messagesData,
@@ -83,17 +81,18 @@ const messagesReducer = (state = initialReducer, action) => {
   }
 };
 
-export const sendMessageBodyCreator = () => {
+export const sendMessageBodyCreator = (newMessageBody) => {
   return {
     type: SEND_MESSAGE,
+    newMessageBody,
   };
 };
 
-export const updateNewMessageBodyCreator = (body) => {
-  return {
-    type: UPDATE_NEW_MESSAGE_BODY,
-    body: body,
-  };
-};
+// export const updateNewMessageBodyCreator = (body) => {
+//   return {
+//     type: UPDATE_NEW_MESSAGE_BODY,
+//     body: body,
+//   };
+// };
 
 export default messagesReducer;
